@@ -1,0 +1,28 @@
+body{
+    font-size: 13px;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+    line-height: 1.154;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-align: center;
+    vertical-align: center;
+}
+h1{
+    text-align: center;
+}
+input, button{
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 13.3333px Arial;
+}
+.login_button{
+    margin: 3px;
+}
