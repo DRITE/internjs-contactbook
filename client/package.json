@@ -1,0 +1,9 @@
+{
+    "name": "Fedor",
+    "description": "Book of your contacts",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "webpack"
+    }
+
+}
