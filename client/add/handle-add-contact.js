@@ -1,17 +1,19 @@
 import {addContact} from './add-contact';
-export let addContactButton = document.getElementById('add_contact_button');
-addContactButton.addEventListener('click', handelAddContact);
-let newContactName = document.getElementById('contact_name_id');
-let newContactSecondName = document.getElementById('contact_second_name_id');
+// export let addContactButton = document.getElementById('add_contact_button');
+// addContactButton.addEventListener('click', handelAddContact);
+// let newContactName = document.getElementById('contact_name_id');
+// let newContactSecondName = document.getElementById('contact_second_name_id');
 
 
-function handelAddContact(){
+export function handelAddContact(values){
     fetch('./add')
     .then((response) => {
         if (response.status !== 200) {
-            console.log('имя: ' + newContactName.value);
-            addContact(newContactName.value, newContactSecondName.value);
-            console.log('Была вызвана функция добавления контакта');
+            console.log('Зашли в if в fetch');
+            //addContact(newContactName.value, newContactSecondName.value);
+            console.log('Пытаемся добавить массив', values);
+            addContact(values);
+            console.log('Прошли строку добавления контакта');
         }
         return response.text();
     })
@@ -19,6 +21,6 @@ function handelAddContact(){
         console.log(body);
     })
     .catch(() => {
-        alert('Error..');
+        alert('Сработал catch в fetch..');
     });
 }

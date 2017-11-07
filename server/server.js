@@ -1,6 +1,7 @@
 ﻿var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var myContacts = require('../client/index');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -8,9 +9,13 @@ app.use(express.static('../client'));
 
 app.get('/contacts', function (req, res) {
   //res.send('./contacts.html');
-  res.send('Выполнен переход на страницу контактов');
+  //res.send('Выполнен переход на страницу контактов');
   //res.redirect('./contacts.html');
   //res.send(contacts);
+  res.send(JSON.stringify(myContacts));
+});
+app.put('/contacts', function(req, res){
+  //res.send(JSON.stringify(myContacts));
 });
 
 app.listen(3000, function () {
