@@ -1,16 +1,21 @@
-
-export let myContacts = [
+let myContacts = [
     {
-        name: "Nikolay",
-        surname: "Gritsenko"
+        key: "0",
+        firstName: "Nikolay",
+        lastName: "Gritsenko",
+        age: 32,
+        phoneNumber: 0,
+        address: "Sidney No. 1 Lake Park"
     },
     {
-        name: "Vasya",
-        surname: "Pupkin"
+        key: "1",
+        firstName: "Vasya",
+        lastName: "Pupkin",
+        age: 32,
+        phoneNumber: 1,
+        address: "Sidney No. 1 Lake Park"
     }
 ];
+module.exports = myContacts;
 
-
-
-//import {loginButton} from './handle-login';
 

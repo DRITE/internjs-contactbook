@@ -1,6 +1,8 @@
 //import {myContacts} from "./index.js";
 //export let loginButton
-import {addContactButton} from './handle-add-contact';
+import {showContactsButton} from './show/handle-show-contacts';
+import {deleteContactButton} from './delete/handle-delete-contact';
+import {addContactButton} from './add/handle-add-contact';
 import {forgottenPassButton} from './handle-forgotten-password';
 import printContacts from "./show-contacts.js";
 let loginButton = document.getElementById('quick_login_button');
