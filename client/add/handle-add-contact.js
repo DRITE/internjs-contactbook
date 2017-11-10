@@ -1,4 +1,4 @@
-//import {addContact} from './add-contact';
+import {showContactsOnPage} from '../show/show-contacts-on-page';
 export let addContactButton = document.getElementById('add_contact_button');
 addContactButton.addEventListener('click', handelAddContact);
 let newContactName = document.getElementById('contact_name_id');
@@ -24,6 +24,12 @@ function handelAddContact(){
     })
     .then((json) => {
         console.log('Parsed json:', json);
+        return json;
+    })
+    .then((contacts) => {
+        console.log('Зашли в then, который рисует конакты');
+        console.log('Смотрим тип контактов: ', typeof(contacts));
+        showContactsOnPage(contacts);
     })
     .catch((err) => {
         console.log('AHTUNG! При добавлении контакта сервер вернул какую-то ошибку', err);

@@ -1,4 +1,4 @@
-import {showContactOnPage} from './show-contacts-on-page';
+import {showContactsOnPage} from './show-contacts-on-page';
 export let showContactsButton = document.getElementById('show_contact_button_id');
 showContactsButton.addEventListener('click', handleShowContacts);
 
@@ -25,17 +25,3 @@ function handleShowContacts() {
 }
 
 
-function showContactsOnPage(contacts){
-    console.log('Зашли в showContactsOnPage, который рисует конакты');
-    // if (Array.isArray(contacts)) {
-    //     document.appendChild(document.createElement('br'));
-    //     contact.forEach(showContactOnPage)
-    // } else {
-    //     console.log('contacts is not array', typeof(contacts));
-    // }
-    for (var key in contacts) {
-        console.log('Текущий ключ: ', key);
-        console.log('Значение по этому ключу: ', contacts[key]);
-        showContactOnPage(contacts[key]);
-    }
-}

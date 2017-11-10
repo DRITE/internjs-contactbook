@@ -10,9 +10,11 @@
     <body>
         <div class="welcome">
             <p><h1>Добро пожаловать в книгу твоих контактов!</h1></p>
-            <div class="quick_welcom" id="quick_welcom_message">
+            <button class="login_button" id="show_contact_button_id">Показать контакты</button>
+            <hr>
+            <!-- <div class="quick_welcom" id="quick_welcom_message">
                 <p>Войди, чтобы посмотреть контакты</p>
-            </div>
+            </div> -->
             <p>
                 <!-- <div class="quick_welcom" id="quick_login">
                     <form method="POST" name="login" id="login-form" action="http://localhost:3000/login">
@@ -30,9 +32,6 @@
                     <button class="login_button" id="quick_forgot_password" >Забыл пароль</button>
                 </div> -->
                 <div>
-                    <button class="login_button" id="show_contact_button_id">Показать контакты</button>
-                    <br>
-                    <button class="login_button" id="add_contact_button">Добавить</button>
                     <div class="label">Имя</div>
                     <div class="labeled">
                         <input type="text" name="name" class="dark" id="contact_name_id">
@@ -45,6 +44,8 @@
                     <div class="labeled">
                         <input type="text" name="phone_nimber" class="dark" id="contact_phone_number_id">
                     </div>
+                    <br>
+                    <button class="login_button" id="add_contact_button">Добавить</button>
                     <hr>
                     <div>
                         <div class="label">Введи ключ контакта, который хочешь удалить. Он совпадает с номером его телефона</div>
