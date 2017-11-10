@@ -1,12 +1,11 @@
 import {showContactsOnPage} from '../show/show-contacts-on-page';
-export let addContactButton = document.getElementById('add_contact_button');
-addContactButton.addEventListener('click', handelAddContact);
+
 let newContactName = document.getElementById('contact_name_id');
 let newContactSecondName = document.getElementById('contact_second_name_id');
 let newContactPhoneNumber = document.getElementById('contact_phone_number_id');
 
 
-function handelAddContact(){
+export function handelAddContact(){
     fetch('./contacts', {
         method: 'POST',
         headers: {

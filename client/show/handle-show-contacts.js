@@ -1,9 +1,7 @@
 import {showContactsOnPage} from './show-contacts-on-page';
-export let showContactsButton = document.getElementById('show_contact_button_id');
-showContactsButton.addEventListener('click', handleShowContacts);
 
 let contacts;
-function handleShowContacts() {
+export function handleShowContacts() {
     fetch('/contacts')
     .then((response) =>{
         console.log('Смотрим как выглядит респонс на показ контактов:', response);

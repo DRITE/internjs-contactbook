@@ -1,9 +1,8 @@
 import {showContactsOnPage} from '../show/show-contacts-on-page';
-export let deleteContactButton = document.getElementById('delete_contact_button_id');
-deleteContactButton.addEventListener('click', handelDeleteContact);
+
 let deleteContactKey = document.getElementById('contact_key_for_delete_id');
 
-function handelDeleteContact(){
+export function handelDeleteContact(){
     fetch('./contacts', {
         method: 'POST',
         headers: {

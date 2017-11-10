@@ -75,12 +75,6 @@
 function showContactsOnPage(contacts){
     console.log('Зашли в showContactsOnPage, который рисует конакты');
     Object(__WEBPACK_IMPORTED_MODULE_0__show_contact__["a" /* clearRootElement */])();
-    // if (Array.isArray(contacts)) {
-    //     document.appendChild(document.createElement('br'));
-    //     contact.forEach(showContactOnPage)
-    // } else {
-    //     console.log('contacts is not array', typeof(contacts));
-    // }
     for (var key in contacts) {
         console.log('Текущий ключ: ', key);
         console.log('Значение по этому ключу: ', contacts[key]);
@@ -125,34 +119,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_handle_show_contacts__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__delete_handle_delete_contact__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_handle_add_contact__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__handle_forgotten_password__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__show_contacts_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__show_contacts_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__show_contacts_js__);
-//import {myContacts} from "./index.js";
-//export let loginButton
 
 
 
 
+let showContactsButton = document.getElementById('show_contact_button_id');
+showContactsButton.addEventListener('click', __WEBPACK_IMPORTED_MODULE_0__show_handle_show_contacts__["a" /* handleShowContacts */]);
 
-let loginButton = document.getElementById('quick_login_button');
-loginButton.addEventListener('click', handelLogin);
+let deleteContactButton = document.getElementById('delete_contact_button_id');
+deleteContactButton.addEventListener('click', __WEBPACK_IMPORTED_MODULE_1__delete_handle_delete_contact__["a" /* handelDeleteContact */]);
 
-
-function handelLogin(){
-    fetch('./contacts')
-    .then((response) => {
-        __WEBPACK_IMPORTED_MODULE_4__show_contacts_js___default()();
-        return response.text(); //actually trying return html 
-    })
-    // .then((body) => {
-    //     console.log(body);
-    // })
-    .catch(() => {
-        alert('Errror..');
-    });
-}
-
+let addContactButton = document.getElementById('add_contact_button');
+addContactButton.addEventListener('click', __WEBPACK_IMPORTED_MODULE_2__add_handle_add_contact__["a" /* handelAddContact */]);
 
 
 /***/ }),
@@ -160,11 +138,9 @@ function handelLogin(){
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export showContactsButton */
+/* harmony export (immutable) */ __webpack_exports__["a"] = handleShowContacts;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_contacts_on_page__ = __webpack_require__(0);
 
-let showContactsButton = document.getElementById('show_contact_button_id');
-showContactsButton.addEventListener('click', handleShowContacts);
 
 let contacts;
 function handleShowContacts() {
@@ -196,11 +172,10 @@ function handleShowContacts() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export deleteContactButton */
+/* harmony export (immutable) */ __webpack_exports__["a"] = handelDeleteContact;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_show_contacts_on_page__ = __webpack_require__(0);
 
-let deleteContactButton = document.getElementById('delete_contact_button_id');
-deleteContactButton.addEventListener('click', handelDeleteContact);
+
 let deleteContactKey = document.getElementById('contact_key_for_delete_id');
 
 function handelDeleteContact(){
@@ -236,11 +211,10 @@ function handelDeleteContact(){
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export addContactButton */
+/* harmony export (immutable) */ __webpack_exports__["a"] = handelAddContact;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_show_contacts_on_page__ = __webpack_require__(0);
 
-let addContactButton = document.getElementById('add_contact_button');
-addContactButton.addEventListener('click', handelAddContact);
+
 let newContactName = document.getElementById('contact_name_id');
 let newContactSecondName = document.getElementById('contact_second_name_id');
 let newContactPhoneNumber = document.getElementById('contact_phone_number_id');
@@ -275,34 +249,6 @@ function handelAddContact(){
         console.log('AHTUNG! При добавлении контакта сервер вернул какую-то ошибку', err);
     });
 }
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export forgottenPassButton */
-function handleForgottenPass(){
-    alert('Хьюстон, у тебя проблема...');
-}
-
-let forgottenPassButton = document.getElementById('quick_forgot_password');
-forgottenPassButton.addEventListener('click', handleForgottenPass);
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-// import {myContacts} from "./index.js";
-// //let myContacts = require("./index");
-// export default function printContacts(){
-//     console.log(myContacts);
-// }
-//Пока закоментим этот метод. Он может и не понадобится, не знаю..
-
-
-
-
 
 /***/ })
 /******/ ]);
