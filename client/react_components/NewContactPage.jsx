@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Button, Modal, Form, Input } from 'antd'; 
 import 'antd/dist/antd.css';
 import { NewContactForm } from './NewContactForm.jsx';
+import {handleAddContact} from '../add/handle-add-contact';
 
 export class NewContactPage extends React.Component {
     constructor(props) {
