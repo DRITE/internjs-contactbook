@@ -12,13 +12,7 @@ export function handleShowContactsReact() {
         //console.log('Смотрим тип распарсенного ответа', typeof(json));
         return json;
     })
-    .then((contacts) => {
-        console.log('Зашли в then, который рисует конакты');
-        console.log('Смотрим тип контактов: ', typeof(contacts));
-        //showContactsOnPage(contacts);
-        myContacts = Array.from(contacts);
-        console.log(myContacts);
-    })
+    .then((mycontacts) => {this.setState({contacts: mycontacts})})
     .catch((err) => {
         console.log('AHTUNG! При показе контактов сервер матерится:', err);
     })

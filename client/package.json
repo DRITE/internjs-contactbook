@@ -3,7 +3,7 @@
     "description": "Book of your contacts",
     "version": "0.0.1",
     "scripts": {
-        "start": "webpack"
+        "start": "webpack -w"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
