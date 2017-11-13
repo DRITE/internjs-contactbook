@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button, Modal, Form, Input } from 'antd'; 
-import 'antd/dist/antd.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Button, Modal, Form, Input } from "antd";
+import "antd/dist/antd.css";
 
 const FormItem = Form.Item;
 
@@ -19,8 +19,8 @@ export const NewContactForm = Form.create()(
             >
                 <Form layout="vertical">
                     <FormItem label="First Name">
-                        {getFieldDecorator('firstName', {
-                            rules: [{ required: true, message: 'Please input the first name' }],
+                        {getFieldDecorator("firstName", {
+                            rules: [{ required: true, message: "Please input the first name" }],
                         })(
                             <Input />
                             )}

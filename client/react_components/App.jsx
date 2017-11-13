@@ -1,30 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import { Button, Table, Icon } from 'antd';
-import { NewContactPage } from './NewContactPage.jsx';
-import {handleDeleteContact} from '../delete/handle-delete-contact';
-import { handleShowContactsReact } from '../show/handle-show-contacts-react';
-let { Column, ColumnGroup } = Table;
+import React from "react";
+import "antd/dist/antd.css";
+import {Button, Icon, Table} from "antd";
+import {NewContactPage} from "./NewContactPage.jsx";
+import {handelDeleteContactReact} from "../delete/handle-delete-contact-react";
+import {handleShowContactsReact} from "../show/handle-show-contacts-react";
 
-// let myContacts = [
-//     {
-//         key: "0",
-//         firstName: "Nikolay",
-//         lastName: "Gritsenko",
-//         age: 32,
-//         phoneNumber: 0,
-//         //address: "Sidney No. 1 Lake Park"
-//     },
-//     {
-//         key: "1",
-//         firstName: "Vasya",
-//         lastName: "Pupkin",
-//         age: 32,
-//         phoneNumber: 1,
-//         //address: "Sidney No. 1 Lake Park"
-//     }
-// ];
+let {Column, ColumnGroup} = Table;
+
 export class App extends React.Component {
     constructor(props) {
         super(props);
@@ -32,21 +14,24 @@ export class App extends React.Component {
             contacts: []
         }
     }
+
     componentDidMount() {
         handleShowContactsReact.call(this);
     }
 
-    showContacts(){
+    showContacts() {
         handleShowContactsReact.call(this);
+    }
+    deleteContact(key) {
+        handelDeleteContactReact.call(this, key);
     }
 
     render() {
-        console.log('Пытаемся перерисовать контакты. Вызван render()');
+        console.log("Пытаемся перерисовать контакты. Вызван render()");
         return (
             <div>
                 <Button type="primary" onClick={this.showContacts.bind(this)}>Show</Button>
-                <NewContactPage />
-                <Button type="primary" onClick={handleDeleteContact}>Delete</Button>
+                <NewContactPage/>
                 <Table dataSource={this.state.contacts}>
                     <ColumnGroup title="Name">
                         <Column
@@ -66,6 +51,11 @@ export class App extends React.Component {
                         key="age"
                     />
                     <Column
+                        title="Phone Number"
+                        dataIndex="phoneNumber"
+                        key="phoneNumber"
+                    />
+                    <Column
                         title="Address"
                         dataIndex="address"
                         key="address"
@@ -75,12 +65,13 @@ export class App extends React.Component {
                         key="action"
                         render={(text, record) => (
                             <span>
-                                <a href="#">Action 一 {record.name}</a>
-                                <span className="ant-divider" />
-                                <a href="#">Delete</a>
-                                <span className="ant-divider" />
+                                <a href="#">Action 一 {record.key}</a>
+                                <span className="ant-divider"/>
+                                {/*<a href="#">Delete</a>*/}
+                                <Button type="primary" onClick={this.deleteContact.bind(this, record.key)}>Delete</Button>
+                                <span className="ant-divider"/>
                                 <a href="#" className="ant-dropdown-link">
-                                    More actions <Icon type="down" />
+                                    More actions <Icon type="down"/>
                                 </a>
                             </span>
                         )}
@@ -90,3 +81,23 @@ export class App extends React.Component {
         );
     }
 }
+
+
+// let myContacts = [
+//     {
+//         key: "0",
+//         firstName: "Nikolay",
+//         lastName: "Gritsenko",
+//         age: 32,
+//         phoneNumber: 0,
+//         //address: "Sidney No. 1 Lake Park"
+//     },
+//     {
+//         key: "1",
+//         firstName: "Vasya",
+//         lastName: "Pupkin",
+//         age: 32,
+//         phoneNumber: 1,
+//         //address: "Sidney No. 1 Lake Park"
+//     }
+// ];

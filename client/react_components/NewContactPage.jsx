@@ -1,9 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button, Modal, Form, Input } from 'antd'; 
-import 'antd/dist/antd.css';
-import { NewContactForm } from './NewContactForm.jsx';
-import {handleAddContact} from '../add/handle-add-contact';
+import React from "react";
+import {Button} from "antd";
+import "antd/dist/antd.css";
+import {NewContactForm} from "./NewContactForm.jsx";
+import {handelAddContactReact} from "../add/handle-add-contact-react";
 
 export class NewContactPage extends React.Component {
     constructor(props) {
@@ -12,15 +11,17 @@ export class NewContactPage extends React.Component {
             visible: false,
         };
     }
-    
+
 
     showModal() {
-        console.log('зашли в showModal');
-        this.setState({ visible: true });
+        console.log("зашли в showModal");
+        this.setState({visible: true});
     }
+
     handleCancel() {
-        this.setState({ visible: false });
+        this.setState({visible: false});
     }
+
     handleCreate() {  ////////ВСТАВИТЬ ОБРАБОТКУ СОЗДАНИЯ НОВОГО КОНТАКТА
         const form = this.form;
         form.validateFields((err, values) => {
@@ -28,17 +29,20 @@ export class NewContactPage extends React.Component {
                 return;
             }
 
-            console.log('Received values of form: ', values);
+            console.log("Received values of form: ", values);
             //сюда вставить сохранение полей в массив
-            handelAddContact(values);
+            console.log('Из формы мы получили следующие значения: ', form.getFieldsValue());
+            handelAddContactReact.call(this,form.getFieldsValue());
             form.resetFields();
-            this.setState({ visible: false });
+            this.setState({visible: false});
         });
     }
+
     saveFormRef(form) {
         console.log('Зашли в saveFormRef');
         this.form = form;
     }
+
     render() {
         return (
             <div>

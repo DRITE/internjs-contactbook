@@ -5,7 +5,7 @@ let myContacts = [
         lastName: "Gritsenko",
         age: 32,
         phoneNumber: 0,
-        //address: "Sidney No. 1 Lake Park"
+        address: "Sidney No. 1 Lake Park"
     },
     {
         key: "1",
@@ -13,7 +13,15 @@ let myContacts = [
         lastName: "Pupkin",
         age: 32,
         phoneNumber: 1,
-        //address: "Sidney No. 1 Lake Park"
+        address: "Sidney No. 1 Lake Park"
+    },
+    {
+        key: "2",
+        firstName: "aaaaa",
+        lastName: "bbbbb",
+        age: 32,
+        phoneNumber: 2,
+        address: "Sidney No. 1 Lake Park"
     }
 ];
 module.exports = myContacts;
