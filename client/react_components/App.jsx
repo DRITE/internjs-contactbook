@@ -4,6 +4,7 @@ import {Button, Icon, Table} from "antd";
 import {NewContactPage} from "./NewContactPage.jsx";
 import {handelDeleteContactReact} from "../delete/handle-delete-contact-react";
 import {handleShowContactsReact} from "../show/handle-show-contacts-react";
+import {handelAddContactReact} from "../add/handle-add-contact-react";
 
 let {Column, ColumnGroup} = Table;
 
@@ -26,6 +27,9 @@ export class App extends React.Component {
     deleteContact(key) {
         handelDeleteContactReact.call(this, key);
     }
+    addContact(newContactObject) {
+        handelAddContactReact.call(this, newContactObject);
+    }
     // shouldComponentUpdate() {
     //     console.log('Зашли в shouldComponentUpdate');
     //     if (this.state.updated){
@@ -36,12 +40,13 @@ export class App extends React.Component {
     //     }
     // }
 
+    //callBack = {this.updated}
     render() {
-        console.log("Пытаемся перерисовать контакты. Вызван render()");
+        console.log("Пытаемся перерисовать контакты. Вызван render() у App");
         return (
             <div>
                 <Button type="primary" onClick={this.showContacts.bind(this)}>Show</Button>
-                <NewContactPage  /*callBack = {this.updated}*//>
+                <NewContactPage onCreateClick={this.addContact.bind(this)}/>
                 <Table dataSource={this.state.contacts}>
                     <ColumnGroup title="Name">
                         <Column

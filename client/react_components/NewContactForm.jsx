@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Button, Modal, Form, Input } from "antd";
 import "antd/dist/antd.css";
+import {handelAddContactReact} from "../add/handle-add-contact-react"
 
 const FormItem = Form.Item;
 

@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import {NewContactForm} from "./NewContactForm.jsx";
 import {handelAddContactReact} from "../add/handle-add-contact-react";
 
+
 export class NewContactPage extends React.Component {
     constructor(props) {
         super(props);
@@ -22,7 +23,7 @@ export class NewContactPage extends React.Component {
         this.setState({visible: false});
     }
 
-    handleCreate() {  ////////ВСТАВИТЬ ОБРАБОТКУ СОЗДАНИЯ НОВОГО КОНТАКТА
+    handleCreate() {
         const form = this.form;
         form.validateFields((err, values) => {
             if (err) {
@@ -32,7 +33,7 @@ export class NewContactPage extends React.Component {
             console.log("Received values of form: ", values);
             //сюда вставить сохранение полей в массив
             console.log('Из формы мы получили следующие значения: ', form.getFieldsValue());
-            handelAddContactReact.call(this,form.getFieldsValue());
+            this.props.onCreateClick(form.getFieldsValue());
             form.resetFields();
             this.setState({visible: false});
         });
@@ -44,6 +45,7 @@ export class NewContactPage extends React.Component {
     }
 
     render() {
+        console.log("Вызван render() у NewContactPage");
         return (
             <div>
                 <Button type="primary" onClick={this.showModal.bind(this)}>New Contact</Button>
