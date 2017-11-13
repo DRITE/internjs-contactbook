@@ -11,7 +11,8 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contacts: []
+            contacts: [],
+            //updated: false
         }
     }
 
@@ -25,13 +26,22 @@ export class App extends React.Component {
     deleteContact(key) {
         handelDeleteContactReact.call(this, key);
     }
+    // shouldComponentUpdate() {
+    //     console.log('Зашли в shouldComponentUpdate');
+    //     if (this.state.updated){
+    //         this.state.updated = false;
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     render() {
         console.log("Пытаемся перерисовать контакты. Вызван render()");
         return (
             <div>
                 <Button type="primary" onClick={this.showContacts.bind(this)}>Show</Button>
-                <NewContactPage/>
+                <NewContactPage  /*callBack = {this.updated}*//>
                 <Table dataSource={this.state.contacts}>
                     <ColumnGroup title="Name">
                         <Column
@@ -67,7 +77,6 @@ export class App extends React.Component {
                             <span>
                                 <a href="#">Action 一 {record.key}</a>
                                 <span className="ant-divider"/>
-                                {/*<a href="#">Delete</a>*/}
                                 <Button type="primary" onClick={this.deleteContact.bind(this, record.key)}>Delete</Button>
                                 <span className="ant-divider"/>
                                 <a href="#" className="ant-dropdown-link">

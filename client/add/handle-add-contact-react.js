@@ -23,7 +23,10 @@ export function handelAddContactReact(newContactObject){
         .then((myContacts) => {
             console.log("Зашли в then, который рисует конакты");
             console.log("Смотрим тип контактов: ", typeof(myContacts));
-            this.setState({contacts: myContacts});
+            this.setState({
+                contacts: myContacts,
+                // updated: true
+            });
         })
         .catch((err) => {
             console.log("AHTUNG! При добавлении контакта сервер вернул какую-то ошибку", err);

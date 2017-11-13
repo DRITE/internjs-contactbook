@@ -11,7 +11,10 @@ export function handleShowContactsReact() {
             return json;
         })
         .then((myContacts) => {
-            this.setState({contacts: myContacts})
+            this.setState({
+                contacts: myContacts,
+                // updated: true
+            })
         })
         .catch((err) => {
             console.log('AHTUNG! При показе контактов сервер матерится:', err);
