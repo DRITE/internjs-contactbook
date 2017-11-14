@@ -2,7 +2,6 @@ import React from "react";
 import {Button} from "antd";
 import "antd/dist/antd.css";
 import {NewContactForm} from "./NewContactForm.jsx";
-import {handelAddContactReact} from "../add/handle-add-contact-react";
 
 
 export class NewContactPage extends React.Component {
@@ -48,7 +47,7 @@ export class NewContactPage extends React.Component {
         console.log("Вызван render() у NewContactPage");
         return (
             <div>
-                <Button type="primary" onClick={this.showModal.bind(this)}>New Contact</Button>
+                <Button className="top-button" type="primary" onClick={this.showModal.bind(this)}>New Contact</Button>
                 <NewContactForm
                     ref={this.saveFormRef.bind(this)}
                     visible={this.state.visible}

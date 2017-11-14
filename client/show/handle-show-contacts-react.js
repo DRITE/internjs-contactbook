@@ -13,6 +13,7 @@ export function handleShowContactsReact() {
         .then((myContacts) => {
             this.setState({
                 contacts: myContacts,
+                displayedContacts: myContacts
                 // updated: true
             })
         })

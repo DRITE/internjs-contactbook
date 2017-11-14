@@ -1,10 +1,12 @@
 import React from "react";
 import "antd/dist/antd.css";
-import {Button, Icon, Table} from "antd";
+import {Button, Icon, Table } from "antd";
 import {NewContactPage} from "./NewContactPage.jsx";
 import {handelDeleteContactReact} from "../delete/handle-delete-contact-react";
 import {handleShowContactsReact} from "../show/handle-show-contacts-react";
 import {handelAddContactReact} from "../add/handle-add-contact-react";
+import {SearchContact} from "./SearchContact";
+import {findContact} from "../logical_actions/find-contact";
 
 let {Column, ColumnGroup} = Table;
 
@@ -13,41 +15,37 @@ export class App extends React.Component {
         super(props);
         this.state = {
             contacts: [],
-            //updated: false
+            displayedContacts: [],
         }
     }
 
     componentDidMount() {
         handleShowContactsReact.call(this);
     }
-
     showContacts() {
         handleShowContactsReact.call(this);
     }
+
     deleteContact(key) {
         handelDeleteContactReact.call(this, key);
     }
+
     addContact(newContactObject) {
         handelAddContactReact.call(this, newContactObject);
     }
-    // shouldComponentUpdate() {
-    //     console.log('Зашли в shouldComponentUpdate');
-    //     if (this.state.updated){
-    //         this.state.updated = false;
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
 
-    //callBack = {this.updated}
+    handleSearch(searchQuery) {
+        findContact.call(this, this.state.contacts, searchQuery);
+    }
+
     render() {
         console.log("Пытаемся перерисовать контакты. Вызван render() у App");
         return (
             <div>
                 <Button type="primary" onClick={this.showContacts.bind(this)}>Show</Button>
+                <SearchContact searchByQuery={this.handleSearch.bind(this)}/>
                 <NewContactPage onCreateClick={this.addContact.bind(this)}/>
-                <Table dataSource={this.state.contacts}>
+                <Table className="table" dataSource={this.state.contacts} > {/*FIXME не забыть, что поменял dataSource*/}
                     <ColumnGroup title="Name">
                         <Column
                             title="First Name"
@@ -91,27 +89,8 @@ export class App extends React.Component {
                         )}
                     />
                 </Table>
+
             </div>
         );
     }
 }
-
-
-// let myContacts = [
-//     {
-//         key: "0",
-//         firstName: "Nikolay",
-//         lastName: "Gritsenko",
-//         age: 32,
-//         phoneNumber: 0,
-//         //address: "Sidney No. 1 Lake Park"
-//     },
-//     {
-//         key: "1",
-//         firstName: "Vasya",
-//         lastName: "Pupkin",
-//         age: 32,
-//         phoneNumber: 1,
-//         //address: "Sidney No. 1 Lake Park"
-//     }
-// ];
