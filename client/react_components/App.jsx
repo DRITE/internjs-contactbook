@@ -13,7 +13,8 @@ export class App extends React.Component {
         super(props);
         this.state = {
             contacts: [],
-        }
+        };
+        this.showContacts = this.showContacts.bind(this);
     }
 
     componentDidMount() {
@@ -29,16 +30,16 @@ export class App extends React.Component {
     }
 
     addContact(newContactObject) {
-        handelAddContactReact.call(this, newContactObject);
+        handelAddContactReact(newContactObject);
     }
 
     render() {
         console.log("Пытаемся перерисовать контакты. Вызван render() у App");
         return (
             <div>
-                <Button type="primary" onClick={this.showContacts.bind(this)}>Show</Button>
+                <Button type="primary" onClick={this.showContacts}>Show</Button>
                 <NewContactPage onCreateClick={this.addContact.bind(this)}/>
-                <Table dataSource={this.state.contacts}>
+                <Table dataSource={78}>
                     <ColumnGroup title="Name">
                         <Column
                             title="First Name"
