@@ -2,7 +2,6 @@ import React from "react";
 import {Button} from "antd";
 import "antd/dist/antd.css";
 import {NewContactForm} from "./NewContactForm.jsx";
-import {handelAddContactReact} from "../add/handle-add-contact-react";
 
 
 export class NewContactPage extends React.Component {

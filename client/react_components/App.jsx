@@ -13,7 +13,6 @@ export class App extends React.Component {
         super(props);
         this.state = {
             contacts: [],
-            //updated: false
         }
     }
 
@@ -24,23 +23,15 @@ export class App extends React.Component {
     showContacts() {
         handleShowContactsReact.call(this);
     }
+
     deleteContact(key) {
         handelDeleteContactReact.call(this, key);
     }
+
     addContact(newContactObject) {
         handelAddContactReact.call(this, newContactObject);
     }
-    // shouldComponentUpdate() {
-    //     console.log('Зашли в shouldComponentUpdate');
-    //     if (this.state.updated){
-    //         this.state.updated = false;
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
 
-    //callBack = {this.updated}
     render() {
         console.log("Пытаемся перерисовать контакты. Вызван render() у App");
         return (
@@ -80,11 +71,12 @@ export class App extends React.Component {
                         key="action"
                         render={(text, record) => (
                             <span>
-                                <a href="#">Action 一 {record.key}</a>
+                                <a href="#">Action 一 {record.key}</a> {/*Скоро тут будет кнопка для редактирования*/}
                                 <span className="ant-divider"/>
-                                <Button type="primary" onClick={this.deleteContact.bind(this, record.key)}>Delete</Button>
+                                <Button type="primary"
+                                        onClick={this.deleteContact.bind(this, record.key)}>Delete</Button>
                                 <span className="ant-divider"/>
-                                <a href="#" className="ant-dropdown-link">
+                                <a href="#" className="ant-dropdown-link"> {/*Скоро этого не будет совсем*/}
                                     More actions <Icon type="down"/>
                                 </a>
                             </span>
@@ -96,22 +88,3 @@ export class App extends React.Component {
     }
 }
 
-
-// let myContacts = [
-//     {
-//         key: "0",
-//         firstName: "Nikolay",
-//         lastName: "Gritsenko",
-//         age: 32,
-//         phoneNumber: 0,
-//         //address: "Sidney No. 1 Lake Park"
-//     },
-//     {
-//         key: "1",
-//         firstName: "Vasya",
-//         lastName: "Pupkin",
-//         age: 32,
-//         phoneNumber: 1,
-//         //address: "Sidney No. 1 Lake Park"
-//     }
-// ];

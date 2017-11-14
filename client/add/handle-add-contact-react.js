@@ -1,10 +1,10 @@
-export function handelAddContactReact(newContactObject){
+export function handelAddContactReact(newContactObject) {
     fetch("./contacts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ //При добавлении реакта это надо будет переделать
+        body: JSON.stringify({
             firstName: newContactObject['firstName'],
             lastName: newContactObject['lastName'],
             phoneNumber: newContactObject['phoneNumber'],
@@ -25,7 +25,6 @@ export function handelAddContactReact(newContactObject){
             console.log("Смотрим тип контактов: ", typeof(myContacts));
             this.setState({
                 contacts: myContacts,
-                // updated: true
             });
         })
         .catch((err) => {

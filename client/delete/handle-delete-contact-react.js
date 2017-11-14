@@ -22,7 +22,6 @@ export function handelDeleteContactReact(key) {
             console.log('Смотрим тип контактов: ', typeof(myContacts));
             this.setState({
                 contacts: myContacts,
-                // updated: true
             })
         })
         .catch((err) => {

@@ -1,14 +1,13 @@
 import React from "react";
-import { Button, Modal, Form, Input } from "antd";
+import {Form, Input, Modal} from "antd";
 import "antd/dist/antd.css";
-import {handelAddContactReact} from "../add/handle-add-contact-react"
 
 const FormItem = Form.Item;
 
 export const NewContactForm = Form.create()(
     (props) => {
-        const { visible, onCancel, onCreate, form } = props;
-        const { getFieldDecorator } = form;
+        const {visible, onCancel, onCreate, form} = props;
+        const {getFieldDecorator} = form;
         return (
             <Modal
                 visible={visible}
@@ -20,30 +19,30 @@ export const NewContactForm = Form.create()(
                 <Form layout="vertical">
                     <FormItem label="First Name">
                         {getFieldDecorator("firstName", {
-                            rules: [{ required: true, message: "Please input the first name" }],
+                            rules: [{required: true, message: "Please input the first name"}],
                         })(
-                            <Input />
-                            )}
+                            <Input/>
+                        )}
                     </FormItem>
                     <FormItem label="Last Name">
                         {getFieldDecorator('lastName', {
-                            rules: [{ required: true, message: 'Please input the second name' }],
+                            rules: [{required: true, message: 'Please input the second name'}],
                         })(
-                            <Input />
-                            )}
+                            <Input/>
+                        )}
                     </FormItem>
                     <FormItem label="Phone Number">
                         {getFieldDecorator('phoneNumber', {
-                            rules: [{ required: true, message: 'Please input the phone number' }],
+                            rules: [{required: true, message: 'Please input the phone number'}],
                         })(
-                            <Input />
-                            )}
+                            <Input/>
+                        )}
                     </FormItem>
                     <FormItem label="Age">
-                        {getFieldDecorator('age')(<Input />)}
+                        {getFieldDecorator('age')(<Input/>)}
                     </FormItem>
                     <FormItem label="Address">
-                        {getFieldDecorator('address')(<Input />)}
+                        {getFieldDecorator('address')(<Input/>)}
                     </FormItem>
                 </Form>
             </Modal>

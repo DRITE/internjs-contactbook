@@ -1,4 +1,3 @@
-
 export function handleShowContactsReact() {
     fetch('/contacts')
         .then((response) => {
@@ -13,7 +12,6 @@ export function handleShowContactsReact() {
         .then((myContacts) => {
             this.setState({
                 contacts: myContacts,
-                // updated: true
             })
         })
         .catch((err) => {
