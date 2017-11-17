@@ -1,18 +1,19 @@
-import { ADD_CONTACT } from '../actions/action-types';
-import { fetchContacts } from "../actions/action-creators";
+import {ADD_CONTACT, REQUEST_CONTACTS, RECEIVE_CONTACTS, FETCH_CONTACTS} from '../actions/action-types';
 
 const initialState = {
     contacts: []
-}
+};
 
-export function showContacts(state = initialState, action) { //TODO Проблема. Написать редюсер на запорс контактов с сервера
+export function fetchContactsReducer(state = initialState, action) {
+    console.log('action', action);//TODO Проблема. Написать редюсер на запорс контактов с сервера
     switch (action.type) {
-        case ADD_CONTACT:
-            return Object.assign({}, state, {
-                contacts: [...state.contacts, action.contact]
-            });
+        case RECEIVE_CONTACTS:
+            return {contacts: action.contacts};
         default:
             return state;
     }
-}
+};
+
+
+
 

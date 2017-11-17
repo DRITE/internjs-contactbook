@@ -5,6 +5,8 @@ import {NewContactPage} from "./NewContactPage.jsx";
 import {handelDeleteContactReact} from "../delete/handle-delete-contact-react";
 import {handleShowContactsReact} from "../show/handle-show-contacts-react";
 import {handelAddContactReact} from "../add/handle-add-contact-react";
+import {fetchContacts, receiveContacts} from "../add-redux/actions/action-creators";
+// import {fetchContacts} from "../add-redux/actions/action-creators";
 
 let {Column, ColumnGroup} = Table;
 
@@ -14,16 +16,21 @@ export class App extends React.Component {
         this.state = {
             contacts: [],
         };
-        this.showContacts = this.showContacts.bind(this);
+        //this.showContacts = this.showContacts.bind(this);
     }
 
     componentDidMount() {
-        handleShowContactsReact.call(this);
+        console.log('Зашли в componentDidMount');
+        console.log('Смотрим, что у нас в contacts: ', this.state.contacts);
+        // handleShowContactsReact.call(this);
+        this.props.fetchContacts();
+        console.log('Смотрим, что у нас ТЕПЕРЬ в contacts: ', this.state.contacts);
     }
 
-    showContacts() {
-        handleShowContactsReact.call(this);
-    }
+    // showContacts() {
+    //     //handleShowContactsReact.call(this);
+    //     //contacts = this.state.fetchContacts;
+    // }
 
     deleteContact(key) {
         handelDeleteContactReact.call(this, key);
@@ -32,14 +39,14 @@ export class App extends React.Component {
     addContact(newContactObject) {
         handelAddContactReact(newContactObject);
     }
-
+//onClick={this.showContacts}
     render() {
         console.log("Пытаемся перерисовать контакты. Вызван render() у App");
         return (
             <div>
-                <Button type="primary" onClick={this.showContacts}>Show</Button>
+                <Button type="primary" onClick={this.props.fetchContacts()}>Show</Button>
                 <NewContactPage onCreateClick={this.addContact.bind(this)}/>
-                <Table dataSource={78}>
+                <Table dataSource={this.props.contacts}>
                     <ColumnGroup title="Name">
                         <Column
                             title="First Name"
@@ -88,4 +95,6 @@ export class App extends React.Component {
         );
     }
 }
+
+
 
